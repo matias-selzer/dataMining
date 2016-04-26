@@ -1,54 +1,83 @@
 package com.models;
 
-import twitter4j.GeoLocation;
 import twitter4j.Status;
 
 public class Tweet {
 
 	// Members
-	private Status mStatus;
+	private long mId;
+	private String mUserName;
+	private String mUserLocation;
+	private String mContent;
 	
+	
+	public Tweet(){
+	}
 	
 	public Tweet(Status pStatus) {
-		this.mStatus = pStatus;
+		this.mId = pStatus.getId();
+		this.mUserLocation = pStatus.getUser().getLocation();
+		this.mContent  = pStatus.getText();
+		this.mUserName = pStatus.getUser().getScreenName();
 	}
+
+
 
 	/**
 	 * @return the id
 	 */
 	public long getId() {
-		return this.mStatus.getId();
+		return mId;
 	}
 
 	/**
-	 * @return the user name
+	 * @param pId the id to set
+	 */
+	public void setId(long pId) {
+		this.mId = pId;
+	}
+
+	/**
+	 * @return the userName
 	 */
 	public String getUserName() {
-		return this.mStatus.getUser().getScreenName();
+		return mUserName;
 	}
 
 	/**
-	 * @return the location where the user profile was created
+	 * @param pUserName the userName to set
+	 */
+	public void setUserName(String pUserName) {
+		this.mUserName = pUserName;
+	}
+
+	/**
+	 * @return the userLocation
 	 */
 	public String getUserLocation() {
-		return this.mStatus.getUser().getLocation();
-	}
-	
-	/**
-	 * @return the location where the tweet was generated
-	 */
-	public GeoLocation getLocation() {
-		return this.mStatus.getGeoLocation();
+		return mUserLocation;
 	}
 
+	/**
+	 * @param pUserLocation the userLocation to set
+	 */
+	public void setUserLocation(String pUserLocation) {
+		this.mUserLocation = pUserLocation;
+	}
 
 	/**
 	 * @return the content
 	 */
 	public String getContent() {
-		return this.mStatus.getText();
+		return mContent;
 	}
 
+	/**
+	 * @param pContent the content to set
+	 */
+	public void setContent(String pContent) {
+		this.mContent = pContent;
+	}
 
 	@Override
 	public String toString()

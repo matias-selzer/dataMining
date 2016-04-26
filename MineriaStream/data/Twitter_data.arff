@@ -1,0 +1,13 @@
+@relation pepe.arff
+
+@attribute id numeric
+@attribute username string
+@attribute user_location string
+@attribute content string
+
+@data
+7.2504133530512179E17,2Silchu,'Argentina ','RT @EdgardoRovira: Macri está realizando un recorte en el presupuesto universitario al no actializar los presupuestos. No contempla inflaci…'
+7.2504135097084314E17,luigisinbigotes,'currently on planet Earth','RT @essantofan: macri haciendose el ciudadano común en lugares'
+7.2504136074779443E17,jcyckerubin,Venezuela,'RT @DelioSanchez: No vale, Macri? Te lo tengo @DISTRICONFORTLI @eIC4T @tatianacastil27 @dcabellor @PadreJosePalmar @GabyPDeVargas https://t…'
+7.2504137255478067E17,Julioce0351,'Ciudad Autónoma de Buenos Aires, Argentina','RT @fernandocarnota: Un jefe sindical se alineó con Macri y rechaza la ley antidespidos https://t.co/kXeGFDktpc https://t.co/HtQdABLwQ1'
+7.250413856997417E17,2Silchu,'Argentina ','RT @Gusta_Mdq: Si Macri no hubiera estimulado despidos con despidos, tarifazos, tasas de interés del 38\% y apertura de importaciones, no ha…'

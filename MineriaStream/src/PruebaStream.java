@@ -11,16 +11,19 @@ import twitter4j.*;
 
 public class PruebaStream {
 
+	public final static Tweet2Arff tweet2arff = new Tweet2Arff();	
+	
 	public static void main(String[] args) 
 			throws TwitterException, IOException {
 		
         TwitterMiner miner = new TwitterMiner();
         
-        miner.setCompletionCondition(CompletionCondition.COUNT);
-        miner.setCompletionValue(100);
+        miner.setCompletionCondition(
+        		CompletionCondition.COUNT,
+        		5);
         
         miner.addKeywords(new String[]{
-			"boca",
+			"macri",
 		});
         
         miner.addLanguages(new String[]{
@@ -28,24 +31,38 @@ public class PruebaStream {
         });
         
         miner.addListener(new TwitterMiningListener() {
-			
 			@Override
 			public void onMiningStart() { }
 			
 			@Override
 			public void onMiningComplete(Collection<Tweet> pTweets) {
-				try {
-					Tweet2Arff tweet2arff = new Tweet2Arff();		        
-			        tweet2arff.saveTweets(
-			        		pTweets,
-			        		"Twitter",
-			        		"pepe.arff");
-				} catch(Exception ex) {
-				}
-				
+				save(pTweets);				
 			}
 		});
-        
-        miner.start();	    
+
+        try {
+        save(tweet2arff.readTweets("./data/Twitter_data.arff"));
+        } catch(Exception ex){ }
+         
+        /*
+        try{
+        	miner.start();	    
+        } catch(Exception ex){
+        	System.err.println(ex.getMessage());
+        }
+        */
+	}
+	
+	
+	public static void save(Collection<Tweet> pTweets) {
+		try {
+				        
+	        tweet2arff.saveTweets(
+	        		pTweets,
+	        		"Twitter",
+	        		"pepe.arff");
+		} catch(Exception ex) { 
+			System.err.println(ex.getMessage());
+		}
 	}
 }

@@ -1,0 +1,81 @@
+@relation 'pepe.arff-weka.filters.unsupervised.attribute.StringToWordVector-R2,3,4-W1000000-prune-rate-1.0-N0-L-S-stemmerweka.core.stemmers.SnowballStemmer-M1-O-stopwordsC:\\Users\\juanmanuel\\git\\dataMining\\MineriaStream\\res\\stop-words\\stop-words_spanish_1-tokenizerweka.core.tokenizers.NGramTokenizer -delimiters \\W -max 1 -min 1-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0'
+
+@attribute id numeric
+@attribute 2silchu numeric
+@attribute 38 numeric
+@attribute actializar numeric
+@attribute aires numeric
+@attribute al numeric
+@attribute aline numeric
+@attribute antidespidos numeric
+@attribute apertura numeric
+@attribute argentina numeric
+@attribute aut numeric
+@attribute buenos numeric
+@attribute ciudad numeric
+@attribute ciudadano numeric
+@attribute con numeric
+@attribute contempla numeric
+@attribute dcabellor numeric
+@attribute de numeric
+@attribute del numeric
+@attribute deliosanchez numeric
+@attribute despidos numeric
+@attribute districonfortli numeric
+@attribute earth numeric
+@attribute edgardorovira numeric
+@attribute eic4t numeric
+@attribute el numeric
+@attribute en numeric
+@attribute essantofan numeric
+@attribute est numeric
+@attribute estimulado numeric
+@attribute fernandocarnota numeric
+@attribute gabypdevargas numeric
+@attribute gusta_mdq numeric
+@attribute ha numeric
+@attribute haciendose numeric
+@attribute htqdablwq1 numeric
+@attribute https numeric
+@attribute hubiera numeric
+@attribute importaciones numeric
+@attribute inflaci numeric
+@attribute inter numeric
+@attribute jcyckerubin numeric
+@attribute jefe numeric
+@attribute julioce0351 numeric
+@attribute kxegfdktpc numeric
+@attribute la numeric
+@attribute ley numeric
+@attribute lo numeric
+@attribute los numeric
+@attribute lugares numeric
+@attribute luigisinbigotes numeric
+@attribute macri numeric
+@attribute noma numeric
+@attribute padrejosepalmar numeric
+@attribute planet numeric
+@attribute presupuesto numeric
+@attribute presupuestos numeric
+@attribute realizando numeric
+@attribute rechaza numeric
+@attribute recorte numeric
+@attribute rt numeric
+@attribute se numeric
+@attribute si numeric
+@attribute sindical numeric
+@attribute tarifazos numeric
+@attribute tasas numeric
+@attribute tatianacastil27 numeric
+@attribute te numeric
+@attribute tengo numeric
+@attribute universitario numeric
+@attribute vale numeric
+@attribute venezuela numeric
+
+@data
+{1 1,3 1,5 1,9 1,15 1,23 1,25 1,26 1,28 1,39 1,48 1,55 1,56 1,57 1,59 1,69 1}
+{0 0.310861,13 1,22 1,25 1,26 1,27 1,34 1,49 1,50 1,54 1}
+{0 0.504869,16 1,19 1,21 1,24 1,31 1,36 1,41 1,47 1,53 1,66 1,67 1,68 1,70 1,71 1}
+{0 0.739159,4 1,6 1,7 1,9 1,10 1,11 1,12 1,14 1,17 1,30 1,35 1,36 1,42 1,43 1,44 1,45 1,46 1,52 1,58 1,61 1,63 1}
+{0 1,1 1,2 1,8 1,9 1,14 1,17 1,18 1,20 1,29 1,32 1,33 1,37 1,38 1,40 1,62 1,64 1,65 1}

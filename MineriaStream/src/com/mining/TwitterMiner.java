@@ -28,8 +28,14 @@ public class TwitterMiner implements StatusListener{
 	public static final String LANGUAGE_ITALIAN = "it";
 	
 	private HashSet<TwitterMiningListener> mListeners;
+	
+	// OR on keywords
 	private HashSet<String> mKeywords;
+	
+	// OR on languages
 	private HashSet<String> mLanguages;
+	
+	
 	private ArrayList<Tweet> mTweets;
 	
 	private ConfigurationBuilder mConfig;
@@ -59,12 +65,12 @@ public class TwitterMiner implements StatusListener{
 	 * Starts a new streaming session on twitter.
 	 * Uses the keywords to filter the tweets.
 	 */
-	public void start() {
+	public void start() throws Exception{
 		
 		// Create the filter
 		FilterQuery fq 	  = new FilterQuery();
 		
-        fq.track(this.mKeywords.toArray(new String[this.mKeywords.size()]));
+		fq.track(this.mKeywords.toArray(new String[this.mKeywords.size()]));
         fq.language(this.mLanguages.toArray(new String[this.mLanguages.size()]));
         
 		// Create a new twitter stream
@@ -73,31 +79,27 @@ public class TwitterMiner implements StatusListener{
         twitterStream.addListener(this);
         twitterStream.filter(fq);
         
-        try {
-        	
-        	// Notify the listeners that a streaming is about to start.
-        	notifyStart();
-        	
-        	// Wait the condition to complete.
-        	switch (this.mCompletionCondition) {
-			case COUNT:
-				while(this.mCompletionValue > this.mTweets.size()){
-					Thread.sleep(1000);
-				}
-				break;
-
-			case TIME_OUT:
-				Thread.sleep(this.mCompletionValue);
-				break;
+    	// Notify the listeners that a streaming is about to start.
+    	notifyStart();
+    	
+    	// Wait the condition to complete.
+    	switch (this.mCompletionCondition) {
+		case COUNT:
+			while(this.mCompletionValue > this.mTweets.size()){
+				Thread.sleep(1000);
 			}
-        	
-        	// Close the stream.
-	        twitterStream.shutdown();
-	        
-	        // Notify the listeners that the streaming is complete.
-	        notifyComplete();
-	        
-        }catch(Exception ex){ }
+			break;
+
+		case TIME_OUT:
+			Thread.sleep(this.mCompletionValue);
+			break;
+		}
+    	
+    	// Close the stream.
+        twitterStream.shutdown();
+        
+        // Notify the listeners that the streaming is complete.
+        notifyComplete();	        
 	}
 	
 	public void addListener(TwitterMiningListener listener){
@@ -122,8 +124,9 @@ public class TwitterMiner implements StatusListener{
 	/**
 	 * @param pCompletionCondition the completionCondition to set
 	 */
-	public void setCompletionCondition(CompletionCondition pCompletionCondition) {
+	public void setCompletionCondition(CompletionCondition pCompletionCondition, long pValue) {
 		this.mCompletionCondition = pCompletionCondition;
+		this.mCompletionValue = pValue;
 	}
 
 	/**
@@ -131,13 +134,6 @@ public class TwitterMiner implements StatusListener{
 	 */
 	public long getCompletionValue() {
 		return mCompletionValue;
-	}
-
-	/**
-	 * @param pCompletionValue the completionValue to set
-	 */
-	public void setCompletionValue(long pCompletionValue) {
-		this.mCompletionValue = pCompletionValue;
 	}
 
 	public void notifyStart() {
