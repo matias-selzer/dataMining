@@ -68,11 +68,19 @@ public class Tweet2Arff {
 		
 		output_instances = Filter.useFilter(input_instances, this.mFilter);
     
+		// 4. output data
+		System.out.println(output_instances);
+
+		
 		// 5. Save data to ARFF file
 		ArffSaver saver = new ArffSaver();
 		saver.setInstances(output_instances);
 		saver.setFile(new File("./data/" + pFileName));
 		saver.writeBatch();    
+		
+		saver.setInstances(input_instances);
+		saver.setFile(new File("./data/" + pFileName + "tweets"));
+		saver.writeBatch();
     }
     
     /**
@@ -87,7 +95,6 @@ public class Tweet2Arff {
         
         pData.add(new Instance(1.0, newInst));
     }
-    
 
 	/**
 	 * @return the filter
