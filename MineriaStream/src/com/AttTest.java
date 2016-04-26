@@ -1,9 +1,12 @@
 package com;
 
+import java.io.File;
+
 import weka.core.Attribute;
 import weka.core.FastVector;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.core.converters.ArffSaver;
 
 /**
  * Generates a little ARFF file with different attribute types.
@@ -119,5 +122,13 @@ public class AttTest {
 
     // 4. output data
     System.out.println(data);
+    
+    
+    // 5. Save data to ARFF file
+    ArffSaver saver = new ArffSaver();
+    saver.setInstances(data);
+    saver.setFile(new File("./data/test.arff"));
+    saver.writeBatch();
+    
   }
 }
