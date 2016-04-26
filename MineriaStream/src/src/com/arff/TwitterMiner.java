@@ -47,10 +47,11 @@ public class TwitterMiner implements StatusListener{
 
 	        twitterStream.shutdown();
 
-	        Tweet2Arff2 tweet2arff = new Tweet2Arff2();
+	        Tweet2Arff tweet2arff = new Tweet2Arff();
 	        
 	        tweet2arff.saveTweets(
 	        		this.mTweets,
+	        		"Twitter",
 	        		"pepe.arff");
 	        
         }catch(Exception ex){
