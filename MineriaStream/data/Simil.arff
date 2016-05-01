@@ -1,0 +1,14 @@
+@relation cosineSimilarity
+
+@attribute t0 numeric
+@attribute t1 numeric
+@attribute t2 numeric
+@attribute t3 numeric
+@attribute t4 numeric
+
+@data
+1.0, 0.51, 0.72, 0.0, 0.53
+0.51, 0.99, 0.7, 0.7, 0.0
+0.72, 0.7, 1.0, 0.0, 0.0
+0.0, 0.7, 0.0, 1.0, 0.0
+0.53, 0.0, 0.0, 0.0, 1.0
